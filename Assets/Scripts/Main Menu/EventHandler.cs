@@ -32,6 +32,7 @@ namespace MainMenu {
             _screens.Add(GameObject.Find("New Game Screen"));
             _screens.Add(GameObject.Find("Load Game Screen"));
             _screens.Add(GameObject.Find("Settings Screen"));
+            _screens.Add(GameObject.Find("Scores Screen"));
             _screens.Add(GameObject.Find("Credits Screen"));
             _screens.Add(GameObject.Find("Quit Screen"));
         }//FindScreenGameObjects
@@ -44,14 +45,21 @@ namespace MainMenu {
             _transitions.Add(MenuItemID.OPENING_SCREEN_NEW_GAME, ScreenID.NEW_GAME_SCREEN);
             _transitions.Add(MenuItemID.OPENING_SCREEN_LOAD_GAME, ScreenID.LOAD_GAME_SCREEN);
             _transitions.Add(MenuItemID.OPENING_SCREEN_SETTINGS, ScreenID.SETTINGS_SCREEN);
+            _transitions.Add(MenuItemID.OPENING_SCREEN_SCORES, ScreenID.SCORES_SCREEN);
             _transitions.Add(MenuItemID.OPENING_SCREEN_CREDITS, ScreenID.CREDITS_SCREEN);
             _transitions.Add(MenuItemID.OPENING_SCREEN_QUIT, ScreenID.QUIT_SCREEN);
             
             //New game screen's transitions
+            _transitions.Add(MenuItemID.NEW_GAME_SCREEN_BACK, ScreenID.OPENING_SCREEN);
 
             //Load game screen's transitions
+            _transitions.Add(MenuItemID.LOAD_GAME_SCREEN_BACK, ScreenID.OPENING_SCREEN);
 
             //Settings screen's transitions
+            _transitions.Add(MenuItemID.SETTINGS_SCREEN_BACK, ScreenID.OPENING_SCREEN);
+
+            //Scores screen's transitions
+            _transitions.Add(MenuItemID.SCORES_SCREEN_BACK, ScreenID.OPENING_SCREEN);
 
             //Credits screen's transitions
             _transitions.Add(MenuItemID.CREDITS_SCREEN_BACK, ScreenID.OPENING_SCREEN);
@@ -63,11 +71,7 @@ namespace MainMenu {
         public void HandleLabelButtonEvent(MenuItemID menuItemID) 
         {
             Debug.Log("Event Handler: Handling event " + menuItemID);
-            //Check whether  
-            if (menuItemID == MenuItemID.QUIT_SCREEN_QUIT)
-                Application.Quit();
-            else
-                SetScreenActive(_transitions[menuItemID]);
+            SetScreenActive(_transitions[menuItemID]);
         }
 
         private void SetScreenActive(ScreenID screenID) 
@@ -88,6 +92,37 @@ namespace MainMenu {
         public void HandleSliderEvent(MenuItemID menuItemID, float step) 
         { 
         
+        }
+
+        public void HandleLaunchEvent(MenuItemID menuItemID) 
+        { 
+            switch(menuItemID)
+            {
+                case MenuItemID.NEW_GAME_SCREEN_TUTORIAL:
+                    //Launch tutorial scene
+                    Debug.Log("Launching tutorial...");
+                    break;
+                case MenuItemID.NEW_GAME_SCREEN_STORY_MODE:
+                    //Start story
+                    Debug.Log("Launching story...");
+                    break;
+                case MenuItemID.NEW_GAME_SCREEN_SURVIVAL:
+                    //Start survival
+                    Debug.Log("Launching survival...");
+                    break;
+                case MenuItemID.LOAD_GAME_SCREEN_LOAD:
+                    //Load selected game
+                    Debug.Log("Launching load...");
+                    break;
+                case MenuItemID.OPENING_SCREEN_QUICK_MATCH:
+                    //Start a random match
+                    Debug.Log("Launching quick match...");
+                    break;
+                case MenuItemID.QUIT_SCREEN_QUIT:
+                    //Quit Application
+                    Application.Quit();
+                    break;
+            }
         }
 
         // Update is called once per frame

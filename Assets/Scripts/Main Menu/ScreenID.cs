@@ -10,7 +10,8 @@ namespace MainMenu
         NEW_GAME_SCREEN = 1,
         LOAD_GAME_SCREEN = 2,
         SETTINGS_SCREEN = 3,
-        CREDITS_SCREEN = 4,
-        QUIT_SCREEN = 5
+        SCORES_SCREEN = 4,
+        CREDITS_SCREEN = 5,
+        QUIT_SCREEN = 6
     }
 }

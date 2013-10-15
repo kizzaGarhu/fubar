@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace MainMenu
 {
-    class MenuItemBehavior : MonoBehaviour
+    class LabelButtonBehavior : MonoBehaviour
     {
         //Class Variables
         public GameObject eventHandler; //Reference to the EventHandler GameObject
