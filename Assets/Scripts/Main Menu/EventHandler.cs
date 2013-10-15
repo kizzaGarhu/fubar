@@ -60,7 +60,7 @@ namespace MainMenu {
             _transitions.Add(MenuItemID.QUIT_SCREEN_CANCEL, ScreenID.OPENING_SCREEN);
         }
 
-        public void HandleEvent(MenuItemID menuItemID) 
+        public void HandleLabelButtonEvent(MenuItemID menuItemID) 
         {
             Debug.Log("Event Handler: Handling event " + menuItemID);
             //Check whether  
@@ -84,6 +84,11 @@ namespace MainMenu {
                     _screens[i].SetActive(false);
             }//foreach
         }//SetScreenActive
+
+        public void HandleSliderEvent(MenuItemID menuItemID, float step) 
+        { 
+        
+        }
 
         // Update is called once per frame
         void Update()

@@ -17,6 +17,7 @@ namespace MainMenu {
         //Load game screen's label buttons
 
         //Settings screen's label buttons
+        SETTINGS_VOLUME_SLIDER,
 
         //Credits screen's label buttons
         CREDITS_SCREEN_BACK,

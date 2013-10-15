@@ -11,7 +11,7 @@ namespace MainMenu
 
         void OnMouseDown() {
             Debug.Log("MenuItemBehaviour: Clicked " + menuItemID);
-            eventHandler.GetComponent<EventHandler>().HandleEvent(menuItemID);
+            eventHandler.GetComponent<EventHandler>().HandleLabelButtonEvent(menuItemID);
         }
     
     }
